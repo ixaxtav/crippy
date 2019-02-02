@@ -1,7 +1,20 @@
 import React from "react";
+import styled from "styled-components";
+
+const Bar = styled.div`
+	display: grid;
+	grid-template-columns: 180px auto 100px 100px;
+`;
 
 export class Navbar extends React.Component {
 	render() {
-		return <h2 className="text-center">Navbar</h2>;
+		return (
+			<Bar>
+				<div>Crippy</div>
+				<div />
+				<div>Dashboard</div>
+				<div>Settings</div>
+			</Bar>
+		);
 	}
 }
