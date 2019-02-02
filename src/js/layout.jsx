@@ -7,7 +7,7 @@ import { Demo } from "./views/demo.jsx";
 import { Single } from "./views/single.jsx";
 import Store from "./store/appContext.jsx";
 
-import { Navbar } from "./component/navbar.jsx";
+import Navbar from "./component/Navbar.jsx";
 import { Footer } from "./component/footer.jsx";
 
 //create your first component
