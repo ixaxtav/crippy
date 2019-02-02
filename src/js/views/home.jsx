@@ -7,7 +7,7 @@ import "../../styles/home.css";
 export class Home extends React.Component {
 	render() {
 		return (
-			<div>
+			<div className="container mt-5">
 				<h1>Welcome to Crippy !</h1>
 			</div>
 		);
