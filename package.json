@@ -15,6 +15,7 @@
 	],
 	"license": "ISC",
 	"devDependencies": {
+		"@babel/plugin-proposal-object-rest-spread": "^7.3.1",
 		"babel-cli": "^6.26.0",
 		"babel-core": "^6.26.0",
 		"babel-eslint": "^8.2.2",
@@ -22,6 +23,7 @@
 		"babel-plugin-transform-class-properties": "^6.24.1",
 		"babel-preset-env": "^1.6.0",
 		"babel-preset-react": "^6.24.1",
+		"babel-preset-stage-0": "^6.24.1",
 		"bc-console": "0.0.2",
 		"css-loader": "^0.28.7",
 		"eslint": "^4.19.1",
@@ -46,7 +48,8 @@
 	"babel": {
 		"presets": [
 			"env",
-			"react"
+			"react",
+			"stage-0"
 		],
 		"plugins": [
 			"babel-plugin-transform-class-properties"

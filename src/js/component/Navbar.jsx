@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
+import { AppContext } from "../store/AppProvider.js";
 
 const Logo = styled.div`
 	font-size: 1.5em;
@@ -24,11 +25,15 @@ function toProperCase(lower) {
 	return lower.charAt(0).toUpperCase() + lower.substr(1);
 }
 
-function ControlButton({ name, active }) {
+function ControlButton({ name }) {
 	return (
-		<ControlButtonElem active={active}>
-			{toProperCase(name)}
-		</ControlButtonElem>
+		<AppContext.Consumer>
+			{({ page }) => (
+				<ControlButtonElem active={page === name}>
+					{toProperCase(name)}
+				</ControlButtonElem>
+			)}
+		</AppContext.Consumer>
 	);
 }
 
