@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cc from "cryptocompare";
+import "babel-polyfill";
 
 export const AppContext = React.createContext();
 
@@ -13,6 +15,15 @@ export class AppProvider extends React.Component {
 			confirmFavorites: this.confirmFavorites
 		};
 	}
+
+	componentDidMount = () => {
+		this.fetchCoins();
+	};
+
+	fetchCoins = async () => {
+		let coinList = (await cc.coinList()).Data;
+		this.setState({ coinList });
+	};
 
 	confirmFavorites = () => {
 		this.setState({
