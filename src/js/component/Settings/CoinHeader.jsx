@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import {
+	SelectableTile,
+	DisabledTile,
+	DeletableTile
+} from "../../component/Shared/Tile.jsx";
 
 export const CoinHeaderGridStyled = styled.div`
 	display: grid;
@@ -11,16 +16,30 @@ export const CoinSymbol = styled.div`
 	justify-self: right;
 `;
 
-export default function CoinHeader({ name, symbol }) {
+const DeleteIcon = styled.div`
+	justify-self: right;
+	display: none;
+	${DeletableTile}:hover & {
+		display: block;
+		color: red;
+	}
+`;
+
+export default function CoinHeader({ name, symbol, topSection }) {
 	return (
 		<CoinHeaderGridStyled>
 			<div> {name} </div>
-			<CoinSymbol>{symbol}</CoinSymbol>
+			{topSection ? (
+				<DeleteIcon> X </DeleteIcon>
+			) : (
+				<CoinSymbol> {symbol} </CoinSymbol>
+			)}
 		</CoinHeaderGridStyled>
 	);
 }
 
 CoinHeader.propTypes = {
 	name: PropTypes.string,
-	symbol: PropTypes.string
+	symbol: PropTypes.string,
+	topSection: PropTypes.bool
 };

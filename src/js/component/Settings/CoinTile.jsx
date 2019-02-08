@@ -2,21 +2,42 @@ import React from "react";
 import styled from "styled-components";
 import { AppContext } from "../../store/AppProvider.js";
 import PropTypes from "prop-types";
-import { SelectableTile } from "../../component/Shared/Tile.jsx";
+import {
+	SelectableTile,
+	DisabledTile,
+	DeletableTile
+} from "../../component/Shared/Tile.jsx";
+import CoinHeader from "./CoinHeader.jsx";
+import CoinImg from "../../component/Shared/CoinImage.jsx";
 
-export default function CoinTile({ coinKey }) {
+export default function CoinTile({ coinKey, topSection }) {
 	return (
 		<AppContext.Consumer>
 			{({ coinList }) => {
 				let coin = coinList[coinKey];
 
-				const TileClass = SelectableTile;
-				return <TileClass>{coin.Name}</TileClass>;
+				let TileClass = SelectableTile;
+				if (topSection) {
+					TileClass = DeletableTile;
+				}
+
+				return (
+					<TileClass>
+						<CoinHeader
+							topSection={topSection}
+							name={coin.CoinName}
+							symbol={coin.Symbol}
+						/>
+
+						<CoinImg coin={coin} />
+					</TileClass>
+				);
 			}}
 		</AppContext.Consumer>
 	);
 }
 
 CoinTile.propTypes = {
-	coinKey: PropTypes.object
+	coinKey: PropTypes.string,
+	topSection: PropTypes.bool
 };
