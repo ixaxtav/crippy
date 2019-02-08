@@ -19,5 +19,5 @@ export default function Content(props) {
 }
 
 Content.propTypes = {
-	children: PropTypes.array
+	children: PropTypes.object
 };
