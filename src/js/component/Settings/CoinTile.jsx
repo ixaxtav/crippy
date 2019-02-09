@@ -10,10 +10,14 @@ import {
 import CoinHeader from "./CoinHeader.jsx";
 import CoinImg from "../../component/Shared/CoinImage.jsx";
 
+function clickCoinHandler(topSection, coinKey, addCoin, removeCoin) {
+	return topSection ? () => removeCoin(coinKey) : () => addCoin(coinKey);
+}
+
 export default function CoinTile({ coinKey, topSection }) {
 	return (
 		<AppContext.Consumer>
-			{({ coinList }) => {
+			{({ coinList, addCoin, removeCoin }) => {
 				let coin = coinList[coinKey];
 
 				let TileClass = SelectableTile;
@@ -22,7 +26,13 @@ export default function CoinTile({ coinKey, topSection }) {
 				}
 
 				return (
-					<TileClass>
+					<TileClass
+						onClick={clickCoinHandler(
+							topSection,
+							coinKey,
+							addCoin,
+							removeCoin
+						)}>
 						<CoinHeader
 							topSection={topSection}
 							name={coin.CoinName}
