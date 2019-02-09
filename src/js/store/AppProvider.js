@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import cc from "cryptocompare";
 import "babel-polyfill";
+import _ from "lodash";
 
 export const AppContext = React.createContext();
 
@@ -16,6 +17,7 @@ export class AppProvider extends React.Component {
 			...this.savedSettings(),
 			setpage: this.setPage,
 			addCoin: this.addCoin,
+			removeCoin: this.removeCoin,
 			confirmFavorites: this.confirmFavorites
 		};
 	}
@@ -35,6 +37,11 @@ export class AppProvider extends React.Component {
 			favorites.push(key);
 			this.setState({ favorites });
 		}
+	};
+
+	removeCoin = key => {
+		let favorites = [...this.state.favorites];
+		this.setState({ favorites: _.pull(favorites, key) });
 	};
 
 	confirmFavorites = () => {
