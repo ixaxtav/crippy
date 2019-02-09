@@ -18,6 +18,7 @@ export class AppProvider extends React.Component {
 			setpage: this.setPage,
 			addCoin: this.addCoin,
 			removeCoin: this.removeCoin,
+			isInFavorites: this.isInFavorites,
 			confirmFavorites: this.confirmFavorites
 		};
 	}
@@ -44,6 +45,8 @@ export class AppProvider extends React.Component {
 		this.setState({ favorites: _.pull(favorites, key) });
 	};
 
+	isInFavorites = key => _.includes(this.state.favorites, key);
+
 	confirmFavorites = () => {
 		this.setState({
 			firstVisit: false,
@@ -52,7 +55,7 @@ export class AppProvider extends React.Component {
 		localStorage.setItem(
 			"Crippy",
 			JSON.stringify({
-				text: "hello"
+				favorites: this.state.favorites
 			})
 		);
 	};
@@ -62,7 +65,8 @@ export class AppProvider extends React.Component {
 		if (!crippyData) {
 			return { page: "settings", firstVisit: true };
 		}
-		return {};
+		let { favorites } = crippyData;
+		return { favorites };
 	}
 
 	setPage = page => this.setState({ page });
