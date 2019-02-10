@@ -8,24 +8,24 @@ import { Single } from "./views/single.jsx";
 import Store from "./store/appContext.jsx";
 
 import Navbar from "./component/Navbar.jsx";
+import { AppProvider } from "./store/AppProvider.js";
+import Settings from "./component/Settings/SettingsPage.jsx";
+import Content from "./component/Shared/Content.jsx";
+
 import { Footer } from "./component/footer.jsx";
 
 //create your first component
-export class Layout extends React.Component {
+export default class Layout extends React.Component {
 	render() {
 		return (
-			<BrowserRouter>
-				<ScrollToTop>
-					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route path="/demo" component={Demo} />
-						<Route path="/single/:theid" component={Single} />
-						<Route render={() => <h1>Not found!</h1>} />
-					</Switch>
-				</ScrollToTop>
-			</BrowserRouter>
+			<div className="container mt-5 text-white">
+				<AppProvider>
+					<Navbar />
+					<Content>
+						<Settings />
+					</Content>
+				</AppProvider>
+			</div>
 		);
 	}
 }
-
-export default Store(Layout);

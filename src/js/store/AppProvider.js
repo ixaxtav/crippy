@@ -15,7 +15,7 @@ export class AppProvider extends React.Component {
 			page: "dashboard",
 			favorites: ["BTC", "ETH", "XMR", "DOGE"],
 			...this.savedSettings(),
-			setpage: this.setPage,
+			setPage: this.setPage,
 			addCoin: this.addCoin,
 			removeCoin: this.removeCoin,
 			isInFavorites: this.isInFavorites,

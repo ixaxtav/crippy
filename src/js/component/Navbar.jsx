@@ -9,6 +9,7 @@ const Logo = styled.div`
 
 const Bar = styled.div`
 	display: grid;
+	margin-bottom: 40px;
 	grid-template-columns: 180px auto 100px 100px;
 `;
 
@@ -17,7 +18,7 @@ const ControlButtonElem = styled.div`
 	${props =>
 		props.active &&
 		css`
-			text-shadow: 2px 2px #137f13;
+			text-shadow: 0px 0px 60px #03ff03;
 		`};
 `;
 
@@ -28,8 +29,10 @@ function toProperCase(lower) {
 function ControlButton({ name }) {
 	return (
 		<AppContext.Consumer>
-			{({ page }) => (
-				<ControlButtonElem active={page === name}>
+			{({ page, setPage }) => (
+				<ControlButtonElem
+					active={page === name}
+					onClick={() => setPage(name)}>
 					{toProperCase(name)}
 				</ControlButtonElem>
 			)}
@@ -40,7 +43,7 @@ function ControlButton({ name }) {
 export default function Navbar() {
 	return (
 		<Bar>
-			<Logo>Crippy</Logo>
+			<Logo> Crippy </Logo>
 			<div />
 			<ControlButton active name="dashboard" />
 			<ControlButton name="settings" />
@@ -48,11 +51,6 @@ export default function Navbar() {
 	);
 }
 
-toProperCase.propTypes = {
-	lower: PropTypes.string
-};
-
 ControlButton.propTypes = {
-	name: PropTypes.string,
-	active: PropTypes.bool
+	name: PropTypes.string
 };
