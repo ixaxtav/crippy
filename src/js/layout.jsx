@@ -10,6 +10,7 @@ import Store from "./store/appContext.jsx";
 import Navbar from "./component/Navbar.jsx";
 import { AppProvider } from "./store/AppProvider.js";
 import Settings from "./component/Settings/SettingsPage.jsx";
+import DashboardPage from "./component/Dashboard/DashboardPage.jsx";
 import Content from "./component/Shared/Content.jsx";
 
 import { Footer } from "./component/footer.jsx";
@@ -23,6 +24,7 @@ export default class Layout extends React.Component {
 					<Navbar />
 					<Content>
 						<Settings />
+						<DashboardPage />
 					</Content>
 				</AppProvider>
 			</div>
