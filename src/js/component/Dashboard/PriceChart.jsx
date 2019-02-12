@@ -3,7 +3,7 @@ import React from 'react';
 import {Tile} from "../../component/Shared/Tile";
 import {AppContext} from "../../store/AppProvider.js";
 import ReactHighcharts from 'react-highcharts';
-import HighchartsTheme from './HighchartsTheme';
+import HighchartsTheme from './HighchartsTheme.jsx';
 import ChartSelect from './ChartSelect';
 ReactHighcharts.Highcharts.setOptions(HighchartsTheme);
 
