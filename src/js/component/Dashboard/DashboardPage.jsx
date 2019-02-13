@@ -1,7 +1,23 @@
-import React from "react";
+import React from 'react';
+import styled from 'styled-components';
+import Page from '../component/Shared/Page';
+import PriceGrid from './PriceGrid';
+import CoinSpotlight from './CoinSpotlight';
+import PriceChart from './PriceChart';
 
-import Page from "../../component/Shared/Page.jsx";
+const ChartGrid = styled.div`
+  display: grid;
+  margin-top: 20px;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 3fr;
+`;
 
-export default function DashboardPage() {
-	return <Page name="dashboard">Im DashboardPage</Page>;
+export default function(){
+  return <Page name="dashboard">
+    <PriceGrid/>
+    <ChartGrid>
+      <CoinSpotlight/>
+      <PriceChart/>
+    </ChartGrid>
+  </Page>;
 }
