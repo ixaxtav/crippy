@@ -109,13 +109,13 @@ PriceTiles.propTypes = {
 PriceTileCompact.propTypes = {
 	sym: PropTypes.string,
 	data: PropTypes.object,
-	currentFavorite: PropTypes.func,
+	currentFavorite: PropTypes.bool,
 	setCurrentFavorite: PropTypes.func
 };
 PriceTile.propTypes = {
 	sym: PropTypes.string,
 	data: PropTypes.object,
-	currentFavorite: PropTypes.func,
+	currentFavorite: PropTypes.bool,
 	setCurrentFavorite: PropTypes.func
 };
 ChangePercent.propTypes = {
