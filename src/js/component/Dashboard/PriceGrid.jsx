@@ -1,25 +1,29 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import { AppContext } from "../../store/AppProvider.js";
-import PriceTile from './PriceTile';
+import PriceTile from "./PriceTile.jsx";
 
 const PriceGrid = styled.div`
-  display: grid; 
-  grid-template-columns: repeat(5, 1fr); 
-  grid-gap: 15px; 
-  margin-top: 40px; 
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 15px;
+	margin-top: 40px;
 `;
 
 export default function PriceGrids() {
-  return (
-    <AppContext.Consumer>
-      {({prices}) => (
-        <PriceGrid>
-          {prices.map((price, index) => (
-            <PriceTile key={`priceTile-${index}`} index={index} price={price}/>
-          ))}
-        </PriceGrid>
-      )}
-    </AppContext.Consumer>
-  );
+	return (
+		<AppContext.Consumer>
+			{({ prices }) => (
+				<PriceGrid>
+					{prices.map((price, index) => (
+						<PriceTile
+							key={`priceTile-${index}`}
+							index={index}
+							price={price}
+						/>
+					))}
+				</PriceGrid>
+			)}
+		</AppContext.Consumer>
+	);
 }

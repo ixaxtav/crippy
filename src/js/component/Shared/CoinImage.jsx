@@ -2,11 +2,22 @@ import React from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
-export default function CoinImg({ coin, style }) {
+const CoinImage = styled.img`
+	height: 50px;
+	${props =>
+		props.spotlight &&
+		css`
+			height: 200px;
+			margin: auto;
+			display: block;
+		`};
+`;
+
+export default function CoinImg({ coin, spotlight }) {
 	return (
-		<img
+		<CoinImage
+			spotlight={spotlight}
 			alt={coin.CoinSymbol}
-			style={style || { height: "50px" }}
 			src={`http://cryptocompare.com/${coin.ImageUrl}`}
 		/>
 	);
@@ -14,5 +25,5 @@ export default function CoinImg({ coin, style }) {
 
 CoinImg.propTypes = {
 	coin: PropTypes.object,
-	style: PropTypes.string
+	spotlight: PropTypes.bool
 };
