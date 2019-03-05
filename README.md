@@ -1,6 +1,6 @@
 # Crippy WebApp
 
-need to do the readme file
+Hello and welcome to Crippy ! This is an application where you can choose different cryptocurrrency and see their updated value on the dashboard. Another feature is that you can also add up to 10 cryptocurrency to your favorites list and visualize the changes of their value in a line graph over time.  
 
 
 ### Run the Project from Cloud 9 IDE
